@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>
+		Maths QUIZ
+	</title>
+	<link rel="stylesheet" type="text/css" href="qs.css">
+	<style type="text/css">
+		div
+		{
+			width: 700px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Maths QUIZ</h1>
+	<div>
+		<h4>Select the difficlty level:</h4>
+		<input type="radio" name="levels" onclick="level(1)">Easy<br>
+		<input type="radio" name="levels" onclick="level(2)">Normal<br>
+		<input type="radio" name="levels" onclick="level(3)">Hard<br>
+    <button onclick="check()">Play</button>
+</div>
+</body>
+<script type="text/javascript">
+	let l;
+	function level(n)
+	{
+		l=n;
+	}
+	function check()
+	{
+		if(l==1)
+		{
+			window.location.href="mtest1.html";
+		}
+		else if(l==2)
+		{
+			window.location.href="mtest2.html";
+		}
+		else if(l==3)
+		{
+			window.location.href="mtest3.html";
+		}
+		else
+		{
+			alert("Select a level to play!")
+		}
+	}
+</script>
+</html>

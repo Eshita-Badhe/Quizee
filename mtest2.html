@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Maths QUIZ</title>
+    <link rel="stylesheet" type="text/css" href="qs.css">
+</head>
+<body onload="qs(0)">
+    <h1>Maths QUIZ</h1>
+    <div id="block">
+        <h4 id="qs"></h4>
+        <input type="radio" name="options" onclick="opt('a')" id="aradio">
+        <span id="a"></span><br>
+        <input type="radio" name="options" onclick="opt('b')" id="bradio">
+        <span id="b"></span><br>
+        <input type="radio" name="options" onclick="opt('c')" id="cradio">
+        <span id="c"></span><br>
+    </div>
+    <div id="but">
+      <button onclick="check()" id="next">Next</button>
+  </div>
+    <script type="text/javascript">
+let q = [
+  {
+    qs: "What is the value of 5²?",
+    a: "10",
+    b: "25",
+    c: "15",
+    ans: "b"
+  },
+  {
+    qs: "What is the formula for the area of a circle?",
+    a: "πr²",
+    b: "2πr",
+    c: "πd",
+    ans: "a"
+  },
+  {
+    qs: "What is the sum of the angles in a triangle?",
+    a: "180 degrees",
+    b: "360 degrees",
+    c: "90 degrees",
+    ans: "a"
+  },
+  {
+    qs: "What is the value of 7 × (6 + 2)?",
+    a: "56",
+    b: "42",
+    c: "64",
+    ans: "a"
+  },
+  {
+    qs: "What is the greatest common divisor (GCD) of 12 and 15?",
+    a: "3",
+    b: "6",
+    c: "12",
+    ans: "a"
+  },
+  {
+    qs: "If x + 3 = 7, what is the value of x?",
+    a: "4",
+    b: "3",
+    c: "5",
+    ans: "a"
+  },
+  {
+    qs: "What is the result of 2/3 + 1/3?",
+    a: "1",
+    b: "2/3",
+    c: "3/3",
+    ans: "a"
+  },
+  {
+    qs: "What is the slope of the line represented by the equation y = 2x + 3?",
+    a: "3",
+    b: "2",
+    c: "1",
+    ans: "b"
+  },
+  {
+    qs: "What is 15% of 60?",
+    a: "9",
+    b: "8",
+    c: "7",
+    ans: "a"
+  },
+  {
+    qs: "What is the value of (3 + 4) × 2?",
+    a: "10",
+    b: "14",
+    c: "7",
+    ans: "b"
+  }
+];
+
+
+
+
+
+
+        let sopt, index = 0;
+        let score = 0;
+
+        function qs(index) {
+            let qobj = q[index];
+            document.getElementById("qs").innerHTML = qobj.qs;
+            document.getElementById("a").innerHTML = qobj.a;
+            document.getElementById("b").innerHTML = qobj.b;
+            document.getElementById("c").innerHTML = qobj.c;
+            document.getElementById("aradio").checked = false;
+            document.getElementById("bradio").checked = false;
+            document.getElementById("cradio").checked = false;
+        }
+
+        function opt(option) {
+            sopt = option;
+        }
+
+        function check() {
+            let qobj = q[index];
+            if (qobj.ans === sopt) {
+                score++;
+                alert("Correct!")
+            }
+            else
+            {
+                alert("Wrong!")
+            }
+            if (index < q.length - 1) {
+                index++;
+                qs(index);
+            } else {
+                let msg;
+                if (score === q.length) {
+                    msg = "Excellent! Good job.";
+                } else if (score > q.length / 2) {
+                    msg = "Good!";
+                } else {
+                    msg = "Too bad... Better Luck Next Time!";
+                }
+                let scoreblock = document.getElementById("block");
+                scoreblock.innerHTML="...";
+                let scores = document.createElement("h3");
+                scores.textContent = `Your score: ${score} / ${q.length}`;
+                let msgc=document.createElement("p");
+                msgc.textContent=` ${msg}`;
+                scoreblock.appendChild(scores);
+                scoreblock.appendChild(msgc);
+                 
+                let restartBtn = document.createElement("button");
+                restartBtn.textContent = "DONE";
+                restartBtn.onclick = () => location.href="quizcards2.html";;
+                scoreblock.appendChild(restartBtn);
+
+                let next=document.getElementById("next");
+                let but=document.getElementById("but");
+                but.removeChild(next);
+            }
+        }
+    </script>
+</body>
+</html>

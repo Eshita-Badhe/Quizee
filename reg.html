@@ -1,0 +1,133 @@
+<html>
+<head>
+    <title>Login to QuiZee..!</title>
+    <style type="text/css">
+        body
+        {
+            font-family: Comic Sans MS;
+            background-color: mediumpurple;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        form
+        {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+            padding: 20px;
+            width: 400px;
+            font-size: 16px;
+            font-family: Comic Sans MS; 
+        }
+        h2
+        {
+            font-family: STENCIL;
+            text-align: center;
+            color: purple;
+            margin-bottom: 40px;
+        }
+        label
+        {
+            margin-bottom: 20px;
+            color: purple;
+        }
+        input
+        {
+            width: 100%;
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid mediumpurple;
+            border-radius: 7px;
+        }
+        button
+        {
+            width: 50%;
+            padding: 10px;
+            margin-top: 40px;
+            margin-left: 100px;
+            border: 2px solid mediumpurple;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: Comic sans Ms;
+            background-color: mediumpurple;
+            cursor: pointer;
+            align: center;
+            transition: background-color 0.3s;;
+        }
+        button:hover
+        {
+            background-color: thistle;
+        }
+        font
+        {
+            align-items: right;
+        }
+        a
+        {
+            color: purple;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        a:active
+        {
+            color: purple;
+        }
+        p
+        {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form id="registrationForm">
+        <h2>REGISTER FOR THE QUIZ GAME</h2>
+        <table>
+        <tr><td>
+        <label>USERNAME</label>
+        </td><td>
+        <input type="text" id="username" required>
+        <br></td></tr><tr><td>
+        <label>EMAIL</label>
+        </td><td>
+        <input type="email" id="email" required>
+        <br></td></tr><tr><td>
+        <label>PASSWORD</label>
+        </td><td>
+        <input type="password" id="password" required>
+        <br></td></tr><tr><td>
+        <label>CONFIRM PASSWORD</label>
+        </td><td>
+        <input type="password" id="confirmPassword" required>
+        <br></td></tr></table>
+        <button onclick="Submit()" type="submit" id="submitform">SUBMIT</button>
+        <br><p align="right">Already have an account <a href="login.html">LOGIN!</a></p>
+    </form>
+
+    <script type="text/javascript" language="javascript">
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (password !== confirmPassword) 
+        {
+            alert("Passwords do not match!");
+            return;
+        }
+        else
+        {
+        alert("User "+username+" registered successfully!");
+        document.getElementById('registrationForm').reset();
+}
+});
+    </script>
+</body>
+</html>
+

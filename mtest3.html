@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Maths QUIZ</title>
+    <link rel="stylesheet" type="text/css" href="qs.css">
+</head>
+<body onload="qs(0)">
+    <h1>Maths QUIZ</h1>
+    <div id="block">
+        <h4 id="qs"></h4>
+        <input type="radio" name="options" onclick="opt('a')" id="aradio">
+        <span id="a"></span><br>
+        <input type="radio" name="options" onclick="opt('b')" id="bradio">
+        <span id="b"></span><br>
+        <input type="radio" name="options" onclick="opt('c')" id="cradio">
+        <span id="c"></span><br>
+    </div>
+    <div id="but">
+      <button onclick="check()" id="next">Next</button>
+  </div>
+    <script type="text/javascript">
+let q = [
+  {
+    qs: "What is the derivative of x²?",
+    a: "2x",
+    b: "x",
+    c: "x²",
+    ans: "a"
+  },
+  {
+    qs: "What is the integral of 1/x dx?",
+    a: "ln|x| + C",
+    b: "x + C",
+    c: "x²/2 + C",
+    ans: "a"
+  },
+  {
+    qs: "What is the formula for the quadratic equation?",
+    a: "ax² + bx + c = 0",
+    b: "ax² - bx + c = 0",
+    c: "ax² + bx - c = 0",
+    ans: "a"
+  },
+  {
+    qs: "What is the value of sin(90°)?",
+    a: "1",
+    b: "0",
+    c: "√2",
+    ans: "a"
+  },
+  {
+    qs: "What is the area of a triangle with base 5 and height 10?",
+    a: "25",
+    b: "50",
+    c: "15",
+    ans: "a"
+  },
+  {
+    qs: "If the circumference of a circle is 31.4 cm, what is the radius?",
+    a: "5 cm",
+    b: "10 cm",
+    c: "15 cm",
+    ans: "a"
+  },
+  {
+    qs: "What is the Pythagorean theorem?",
+    a: "a² + b² = c²",
+    b: "a + b = c",
+    c: "a² - b² = c",
+    ans: "a"
+  },
+  {
+    qs: "What is the sum of the interior angles of a pentagon?",
+    a: "540 degrees",
+    b: "360 degrees",
+    c: "180 degrees",
+    ans: "a"
+  },
+  {
+    qs: "What is the logarithm of 100 to base 10?",
+    a: "1",
+    b: "2",
+    c: "10",
+    ans: "b"
+  },
+  {
+    qs: "If f(x) = 3x + 2, what is f(2)?",
+    a: "6",
+    b: "8",
+    c: "10",
+    ans: "b"
+  }
+];
+
+
+        let sopt, index = 0;
+        let score = 0;
+
+        function qs(index) {
+            let qobj = q[index];
+            document.getElementById("qs").innerHTML = qobj.qs;
+            document.getElementById("a").innerHTML = qobj.a;
+            document.getElementById("b").innerHTML = qobj.b;
+            document.getElementById("c").innerHTML = qobj.c;
+            document.getElementById("aradio").checked = false;
+            document.getElementById("bradio").checked = false;
+            document.getElementById("cradio").checked = false;
+        }
+
+        function opt(option) {
+            sopt = option;
+        }
+
+        function check() {
+            let qobj = q[index];
+            if (qobj.ans === sopt) {
+                score++;
+                alert("Correct!")
+            }
+            else
+            {
+                alert("Wrong!")
+            }
+            if (index < q.length - 1) {
+                index++;
+                qs(index);
+            } else {
+                let msg;
+                if (score === q.length) {
+                    msg = "Excellent! Good job.";
+                } else if (score > q.length / 2) {
+                    msg = "Good!";
+                } else {
+                    msg = "Too bad... Better Luck Next Time!";
+                }
+                let scoreblock = document.getElementById("block");
+                scoreblock.innerHTML="...";
+                let scores = document.createElement("h3");
+                scores.textContent = `Your score: ${score} / ${q.length}`;
+                let msgc=document.createElement("p");
+                msgc.textContent=` ${msg}`;
+                scoreblock.appendChild(scores);
+                scoreblock.appendChild(msgc);
+                 
+                let restartBtn = document.createElement("button");
+                restartBtn.textContent = "DONE";
+                restartBtn.onclick = () => location.href="quizcards2.html";;
+                scoreblock.appendChild(restartBtn);
+
+                let next=document.getElementById("next");
+                let but=document.getElementById("but");
+                but.removeChild(next);
+            }
+        }
+    </script>
+</body>
+</html>

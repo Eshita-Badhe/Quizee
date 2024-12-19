@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Technology and Programming QUIZ</title>
+    <link rel="stylesheet" type="text/css" href="qs.css">
+</head>
+<body onload="qs(0)">
+    <h1>JS QUIZ</h1>
+    <div id="block">
+        <h4 id="qs"></h4>
+        <input type="radio" name="options" onclick="opt('a')" id="aradio">
+        <span id="a"></span><br>
+        <input type="radio" name="options" onclick="opt('b')" id="bradio">
+        <span id="b"></span><br>
+        <input type="radio" name="options" onclick="opt('c')" id="cradio">
+        <span id="c"></span><br>
+    </div>
+    <div id="but">
+      <button onclick="check()" id="next">Next</button>
+  </div>
+    <script type="text/javascript">
+let q = [
+  {
+    qs: "What does JavaScript use to perform a comparison?",
+    a: "==",
+    b: "=",
+    c: "===",
+    ans: "a"
+  },
+  {
+    qs: "Which event occurs when the user clicks on an HTML element?",
+    a: "onclick",
+    b: "onchange",
+    c: "onmouseclick",
+    ans: "a"
+  },
+  {
+    qs: "How do you create a function in JavaScript?",
+    a: "function myFunction()",
+    b: "function:myFunction()",
+    c: "function = myFunction()",
+    ans: "a"
+  },
+  {
+    qs: "Which of the following is not a JavaScript data type?",
+    a: "Number",
+    b: "String",
+    c: "Character",
+    ans: "c"
+  },
+  {
+    qs: "How do you declare a JavaScript variable?",
+    a: "var carName;",
+    b: "v carName;",
+    c: "variable carName;",
+    ans: "a"
+  },
+  {
+    qs: "Which symbol is used for comments in JavaScript?",
+    a: "//",
+    b: "#",
+    c: "--",
+    ans: "a"
+  },
+  {
+    qs: "What is the correct way to write an array in JavaScript?",
+    a: "var colors = (1, 2, 3)",
+    b: "var colors = [1, 2, 3]",
+    c: "var colors = {1, 2, 3}",
+    ans: "b"
+  },
+  {
+    qs: "How do you round the number 7.25 to the nearest integer?",
+    a: "Math.round(7.25)",
+    b: "Math.rnd(7.25)",
+    c: "round(7.25)",
+    ans: "a"
+  },
+  {
+    qs: "Which method is used to access an HTML element by its id in JavaScript?",
+    a: "getElementById()",
+    b: "getElement()",
+    c: "querySelector()",
+    ans: "a"
+  },
+  {
+    qs: "What is the output of 2 + '2' in JavaScript?",
+    a: "4",
+    b: "22",
+    c: "Error",
+    ans: "b"
+  }
+];
+
+
+
+        let sopt, index = 0;
+        let score = 0;
+
+        function qs(index) {
+            let qobj = q[index];
+            document.getElementById("qs").innerHTML = qobj.qs;
+            document.getElementById("a").innerHTML = qobj.a;
+            document.getElementById("b").innerHTML = qobj.b;
+            document.getElementById("c").innerHTML = qobj.c;
+            document.getElementById("aradio").checked = false;
+            document.getElementById("bradio").checked = false;
+            document.getElementById("cradio").checked = false;
+        }
+
+        function opt(option) {
+            sopt = option;
+        }
+
+        function check() {
+            let qobj = q[index];
+            if (qobj.ans === sopt) {
+                score++;
+                alert("Correct!")
+            }
+            else
+            {
+                alert("Wrong!")
+            }
+            if (index < q.length - 1) {
+                index++;
+                qs(index);
+            } else {
+                let msg;
+                if (score === q.length) {
+                    msg = "Excellent! Good job.";
+                } else if (score > q.length / 2) {
+                    msg = "Good!";
+                } else {
+                    msg = "Too bad... Better Luck Next Time!";
+                }
+                let scoreblock = document.getElementById("block");
+                scoreblock.innerHTML="...";
+                let scores = document.createElement("h3");
+                scores.textContent = `Your score: ${score} / ${q.length}`;
+                let msgc=document.createElement("p");
+                msgc.textContent=` ${msg}`;
+                scoreblock.appendChild(scores);
+                scoreblock.appendChild(msgc);
+                 
+                let restartBtn = document.createElement("button");
+                restartBtn.textContent = "DONE";
+                restartBtn.onclick = () => location.href="quizcards2.html";;
+                scoreblock.appendChild(restartBtn);
+
+                let next=document.getElementById("next");
+                let but=document.getElementById("but");
+                but.removeChild(next);
+            }
+        }
+    </script>
+</body>
+</html>

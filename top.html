@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>QuiZee..!</title>
+    <style type="text/css">
+        body
+        {
+            font-family: Comic Sans MS;
+            background-color: lavender;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        #container
+        {
+            display: flex;
+            align-items: center;
+            max-width: 1500px;
+        }
+        #icon
+        {
+            font-size: 70px;
+            color: lavender;
+            background-color: darkblue;
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 160px;
+            margin-right: 20px;
+        }
+        #icon:hover
+        {
+            color: #d2b4de;
+        }
+        #title
+        {
+            font-size: 70px;
+            color: darkblue;
+            transform: translateX(-200px);
+            animation: slideIn 2s ease forwards;
+            margin-left: 20px;
+        }
+        @keyframes slideIn 
+        {
+        to 
+        {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    <div id="icon">
+        QZ
+    </div>
+    <div id="title">
+        Quizee..!
+    </div>
+</div>
+</body>
+</html>

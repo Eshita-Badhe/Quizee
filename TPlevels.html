@@ -1,0 +1,65 @@
+<html>
+<head>
+	<title>
+		Technology and Programming QUIZ
+	</title>
+	<link rel="stylesheet" type="text/css" href="qs.css">
+	<style type="text/css">
+		div
+		{
+			width: 700px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Technology and Programming QUIZ</h1>
+	<div>
+		<h4>Select the category:</h4>
+		<input type="radio" name="levels" onclick="level(1)">Basic ICT<br>
+		<input type="radio" name="levels" onclick="level(2)">HTML<br>
+		<input type="radio" name="levels" onclick="level(3)">CSS<br>
+		<input type="radio" name="levels" onclick="level(4)">JS<br>
+		<input type="radio" name="levels" onclick="level(5)">SQL<br>
+		<input type="radio" name="levels" onclick="level(6)">OOP<br>
+    <button onclick="check()">Play</button>
+</div>
+</body>
+<script type="text/javascript">
+	let l;
+	function level(n)
+	{
+		l=n;
+	}
+	function check()
+	{
+		if(l==1)
+		{
+			window.location.href="tptest1.html";
+		}
+		else if(l==2)
+		{
+			window.location.href="tptest2.html";
+		}
+		else if(l==3)
+		{
+			window.location.href="tptest3.html";
+		}
+		else if(l==4)
+		{
+			window.location.href="tptest4.html";
+		}
+		else if(l==5)
+		{
+			window.location.href="tptest5.html";
+		}
+		else if(l==6)
+		{
+			window.location.href="tptest6.html";
+		}
+		else
+		{
+			alert("Select a level to play!")
+		}
+	}
+</script>
+</html>

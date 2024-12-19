@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Technology and Programming QUIZ</title>
+    <link rel="stylesheet" type="text/css" href="qs.css">
+</head>
+<body onload="qs(0)">
+    <h1>CSS QUIZ</h1>
+    <div id="block">
+        <h4 id="qs"></h4>
+        <input type="radio" name="options" onclick="opt('a')" id="aradio">
+        <span id="a"></span><br>
+        <input type="radio" name="options" onclick="opt('b')" id="bradio">
+        <span id="b"></span><br>
+        <input type="radio" name="options" onclick="opt('c')" id="cradio">
+        <span id="c"></span><br>
+    </div>
+    <div id="but">
+      <button onclick="check()" id="next">Next</button>
+  </div>
+    <script type="text/javascript">
+let q = [
+  {
+    qs: "What does CSS stand for?",
+    a: "Colorful Style Sheets",
+    b: "Cascading Style Sheets",
+    c: "Computer Style Sheets",
+    ans: "b"
+  },
+  {
+    qs: "Which property is used to change the background color?",
+    a: "bgcolor",
+    b: "background-color",
+    c: "color",
+    ans: "b"
+  },
+  {
+    qs: "How do you add a comment in CSS?",
+    a: "// This is a comment",
+    b: "<!-- This is a comment -->",
+    c: "/* This is a comment */",
+    ans: "c"
+  },
+  {
+    qs: "Which CSS property controls the text size?",
+    a: "font-size",
+    b: "text-size",
+    c: "font-style",
+    ans: "a"
+  },
+  {
+    qs: "What is the correct CSS syntax to change the font name?",
+    a: "font-family: Arial;",
+    b: "font: Arial;",
+    c: "font-name: Arial;",
+    ans: "a"
+  },
+  {
+    qs: "Which property is used to set the spacing between lines?",
+    a: "line-height",
+    b: "spacing",
+    c: "text-spacing",
+    ans: "a"
+  },
+  {
+    qs: "How do you select an element with id 'header' in CSS?",
+    a: "#header",
+    b: ".header",
+    c: "header",
+    ans: "a"
+  },
+  {
+    qs: "What is the default value of the position property?",
+    a: "absolute",
+    b: "fixed",
+    c: "static",
+    ans: "c"
+  },
+  {
+    qs: "Which property is used to change the text color?",
+    a: "color",
+    b: "text-color",
+    c: "font-color",
+    ans: "a"
+  },
+  {
+    qs: "How can you make a list vertical in CSS?",
+    a: "list-style-type: square;",
+    b: "display: block;",
+    c: "display: inline;",
+    ans: "a"
+  }
+];
+
+
+        let sopt, index = 0;
+        let score = 0;
+
+        function qs(index) {
+            let qobj = q[index];
+            document.getElementById("qs").innerHTML = qobj.qs;
+            document.getElementById("a").innerHTML = qobj.a;
+            document.getElementById("b").innerHTML = qobj.b;
+            document.getElementById("c").innerHTML = qobj.c;
+            document.getElementById("aradio").checked = false;
+            document.getElementById("bradio").checked = false;
+            document.getElementById("cradio").checked = false;
+        }
+
+        function opt(option) {
+            sopt = option;
+        }
+
+        function check() {
+            let qobj = q[index];
+            if (qobj.ans === sopt) {
+                score++;
+                alert("Correct!")
+            }
+            else
+            {
+                alert("Wrong!")
+            }
+            if (index < q.length - 1) {
+                index++;
+                qs(index);
+            } else {
+                let msg;
+                if (score === q.length) {
+                    msg = "Excellent! Good job.";
+                } else if (score > q.length / 2) {
+                    msg = "Good!";
+                } else {
+                    msg = "Too bad... Better Luck Next Time!";
+                }
+                let scoreblock = document.getElementById("block");
+                scoreblock.innerHTML="...";
+                let scores = document.createElement("h3");
+                scores.textContent = `Your score: ${score} / ${q.length}`;
+                let msgc=document.createElement("p");
+                msgc.textContent=` ${msg}`;
+                scoreblock.appendChild(scores);
+                scoreblock.appendChild(msgc);
+                 
+                let restartBtn = document.createElement("button");
+                restartBtn.textContent = "DONE";
+                restartBtn.onclick = () => location.href="quizcards2.html";;
+                scoreblock.appendChild(restartBtn);
+
+                let next=document.getElementById("next");
+                let but=document.getElementById("but");
+                but.removeChild(next);
+            }
+        }
+    </script>
+</body>
+</html>

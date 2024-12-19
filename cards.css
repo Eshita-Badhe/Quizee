@@ -1,0 +1,132 @@
+body
+        {
+            font-family: Comic Sans MS;
+            background-color: mediumpurple;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+
+		#container
+        {
+        	margin-top: 20px;
+            display: flex;
+            align-items: center;
+            max-width: 1500px;
+        }
+        #icon
+        {
+            font-size: 70px;
+            color: lavender;
+            background-color: darkblue;
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 160px;
+            margin-right: 20px;
+        }
+        #icon:hover
+        {
+            color: #d2b4de;
+        }
+        #title
+        {
+            font-size: 70px;
+            color: darkblue;
+            transform: translateX(-200px);
+            animation: slideIn 2s ease forwards;
+            margin-left: 20px;
+        }
+        @keyframes slideIn 
+        {
+        to 
+        {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        }
+
+hr
+{
+	border: 1px solid darkblue; 
+	margin: 20px auto;
+}
+table 
+{
+	background-color: rebeccapurple;
+	border-spacing: 50px; 
+
+	width: 1000px;
+	border-radius: 20px;
+	padding: 20px;
+
+}
+
+td 
+{
+	width: 500px;
+
+	height: 600px;
+
+	background-size: cover; /* Cover the entire cell */
+
+	background-position: center; /* Center the image in the cell */
+
+	border-radius: 20px; /* Optional: rounding the corners */
+
+
+	color: skyblue;
+	font-size: 25px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+}
+#card1 
+{
+	background-image: url('card1.jpg');
+}
+#card2 
+{
+	background-image: url('card2.png');
+}
+#card3 
+{
+	background-image: url('card3.png');
+}
+button 
+{
+
+	width: 200px;
+
+	margin-top: 50px;
+	margin-bottom: 30px;
+
+	padding: 10px;
+
+	background-color: mediumpurple;
+
+	color: white;
+	font-size: 20px;
+
+	border: none;
+
+	border-radius: 5px;
+
+	cursor: pointer;
+
+	transition: background-color 0.3s;
+
+
+}
+
+button:hover 
+{
+
+	background-color: thistle;
+}

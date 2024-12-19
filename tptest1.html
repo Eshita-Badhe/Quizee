@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Technology and Programming QUIZ</title>
+    <link rel="stylesheet" type="text/css" href="qs.css">
+</head>
+<body onload="qs(0)">
+    <h1>Basic ICT QUIZ</h1>
+    <div id="block">
+        <h4 id="qs"></h4>
+        <input type="radio" name="options" onclick="opt('a')" id="aradio">
+        <span id="a"></span><br>
+        <input type="radio" name="options" onclick="opt('b')" id="bradio">
+        <span id="b"></span><br>
+        <input type="radio" name="options" onclick="opt('c')" id="cradio">
+        <span id="c"></span><br>
+    </div>
+    <div id="but">
+      <button onclick="check()" id="next">Next</button>
+  </div>
+    <script type="text/javascript">
+let q = [
+  {
+    qs: "What does CPU stand for?",
+    a: "Central Processing Unit",
+    b: "Computer Personal Unit",
+    c: "Central Peripheral Unit",
+    ans: "a"
+  },
+  {
+    qs: "What is the primary function of RAM?",
+    a: "Store data permanently",
+    b: "Execute programs",
+    c: "Provide temporary storage",
+    ans: "c"
+  },
+  {
+    qs: "Which device is used to input data into a computer?",
+    a: "Monitor",
+    b: "Keyboard",
+    c: "Printer",
+    ans: "b"
+  },
+  {
+    qs: "What does OS stand for in computing?",
+    a: "Open Source",
+    b: "Operating System",
+    c: "Original Software",
+    ans: "b"
+  },
+  {
+    qs: "What is the function of an operating system?",
+    a: "Manage hardware and software resources",
+    b: "Design applications",
+    c: "Increase processing speed",
+    ans: "a"
+  },
+  {
+    qs: "Which of the following is not a type of software?",
+    a: "Operating System",
+    b: "Hardware",
+    c: "Application",
+    ans: "b"
+  },
+  {
+    qs: "What is the purpose of a hard drive?",
+    a: "To perform calculations",
+    b: "To store data permanently",
+    c: "To display output",
+    ans: "b"
+  },
+  {
+    qs: "What does the internet allow computers to do?",
+    a: "Connect to local networks",
+    b: "Access global information",
+    c: "Store files",
+    ans: "b"
+  },
+  {
+    qs: "Which of the following is a web browser?",
+    a: "Microsoft Word",
+    b: "Google Chrome",
+    c: "Adobe Photoshop",
+    ans: "b"
+  },
+  {
+    qs: "What is a computer virus?",
+    a: "A harmful program that can corrupt files",
+    b: "A type of hardware error",
+    c: "An internet connection issue",
+    ans: "a"
+  }
+];
+
+        let sopt, index = 0;
+        let score = 0;
+
+        function qs(index) {
+            let qobj = q[index];
+            document.getElementById("qs").innerHTML = qobj.qs;
+            document.getElementById("a").innerHTML = qobj.a;
+            document.getElementById("b").innerHTML = qobj.b;
+            document.getElementById("c").innerHTML = qobj.c;
+            document.getElementById("aradio").checked = false;
+            document.getElementById("bradio").checked = false;
+            document.getElementById("cradio").checked = false;
+        }
+
+        function opt(option) {
+            sopt = option;
+        }
+
+        function check() {
+            let qobj = q[index];
+            if (qobj.ans === sopt) {
+                score++;
+                alert("Correct!")
+            }
+            else
+            {
+                alert("Wrong!")
+            }
+            if (index < q.length - 1) {
+                index++;
+                qs(index);
+            } else {
+                let msg;
+                if (score === q.length) {
+                    msg = "Excellent! Good job.";
+                } else if (score > q.length / 2) {
+                    msg = "Good!";
+                } else {
+                    msg = "Too bad... Better Luck Next Time!";
+                }
+                let scoreblock = document.getElementById("block");
+                scoreblock.innerHTML="...";
+                let scores = document.createElement("h3");
+                scores.textContent = `Your score: ${score} / ${q.length}`;
+                let msgc=document.createElement("p");
+                msgc.textContent=` ${msg}`;
+                scoreblock.appendChild(scores);
+                scoreblock.appendChild(msgc);
+                 
+                let restartBtn = document.createElement("button");
+                restartBtn.textContent = "DONE";
+                restartBtn.onclick = () => location.href="quizcards2.html";;
+                scoreblock.appendChild(restartBtn);
+
+                let next=document.getElementById("next");
+                let but=document.getElementById("but");
+                but.removeChild(next);
+            }
+        }
+    </script>
+</body>
+</html>
